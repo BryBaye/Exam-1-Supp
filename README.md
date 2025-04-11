@@ -179,3 +179,17 @@ public class AttendanceProcessor {
         writer.close();
     }
 }
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            DayNode attendanceHead = AttendanceProcessor.buildAttendanceList("attendance.csv");
+            StudentNode studentHead = AttendanceProcessor.buildStudentList(attendanceHead);
+            AttendanceProcessor.applyExcusedAbsences(studentHead, "excused.csv");
+            AttendanceProcessor.writeStudentList(studentHead, "output.csv");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
