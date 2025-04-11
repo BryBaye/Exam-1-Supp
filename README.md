@@ -42,3 +42,52 @@ public class DayNode {
     }
 }
 
+public class StudentNode {
+    private String name;
+    private int classesAttended;
+    private String explanations;
+    private StudentNode next;
+
+    public StudentNode(String name) {
+        this.name = name;
+        this.classesAttended = 0;
+        this.explanations = "";
+        this.next = null;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getClassesAttended() {
+        return classesAttended;
+    }
+
+    public void incrementClassesAttended() {
+        classesAttended++;
+    }
+
+    public String getExplanations() {
+        return explanations;
+    }
+
+    public void addExplanation(String explanation) {
+        if (!explanations.isEmpty()) {
+            explanations += "; ";
+        }
+        explanations += explanation;
+    }
+
+    public StudentNode getNext() {
+        return next;
+    }
+
+    public void setNext(StudentNode next) {
+        this.next = next;
+    }
+
+    @Override
+    public String toString() {
+        return name + "," + classesAttended + "," + explanations;
+    }
+}
